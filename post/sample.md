@@ -27,3 +27,7 @@ Content Cell  | Content Cell
 - [ ] Uranus
 - [ ] Neptune
 - [ ] Comet Haley
+
+## 中文测试
+
+这是中文，你好！
