@@ -8,27 +8,9 @@ marked.setOptions({
     }
 });
 
-var github_content = "https://api.github.com/repos/zhsj/zhsj.github.io/contents";
-
 var repo = 'zhsj/zhsj.github.io';
 var github_api = 'https://api.github.com';
-
-var temp;
 var post_dir = "post";
-var posts = [];
-var posts_number = 0;
-var posts_content = {};
-
-var get_post = function(file_name, callback) {
-    var post_prefix = github_content + '/' + post_dir + '/';
-    $.get(post_prefix + file_name, function(data) {
-        var markdown_content = b64_to_utf8(data.content);
-        var html_content = marked(markdown_content);
-        if(callback) {
-            callback(html_content);
-        }
-    });
-}
 
 var post = function(filename) {
     var core = {
@@ -62,12 +44,11 @@ $(document).ready(function(){
         $('#sidebar').hide();
     }
     else {
-
+        var url = github_api + '/repos/' + repo + '/contents/' + post_dir;
         // get markdown file list
-        $.get(github_content + '/' + post_dir, function(data) {
-
-            posts_number = data.length;
-            var posts_count = 0;
+        $.get(url)
+        .done(function(data) {
+            var posts = [];
             data.forEach(function(element, index, array) {
                 if(element.type == "file" && element.name.endsWith(".md")) {
                     posts.push(element.name);
@@ -85,5 +66,4 @@ $(document).ready(function(){
 
         });
     }
-
 });
