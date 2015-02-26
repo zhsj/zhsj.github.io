@@ -1,4 +1,3 @@
-// Test
 function b64_to_utf8(str) {
     return decodeURIComponent(escape(window.atob(str)));
 };
@@ -11,50 +10,80 @@ marked.setOptions({
 
 var github_content = "https://api.github.com/repos/zhsj/zhsj.github.io/contents";
 
+var repo = 'zhsj/zhsj.github.io';
+var github_api = 'https://api.github.com';
+
 var temp;
 var post_dir = "post";
 var posts = [];
 var posts_number = 0;
 var posts_content = {};
 
-$(document).ready(function(){
-    // get markdown file list
-    $.get(github_content + '/' + post_dir, function(data) {
-
-        temp = data;
-        posts_number = data.length;
-        var posts_count = 0;
-        data.forEach(function(element, index, array) {
-            if(element.type == "file" && element.name.endsWith(".md")) {
-
-                posts.push(element.name);
-                var element_url = element.url;
-                $.get(element_url, function(data) {
-                    var markdown_content = b64_to_utf8(data.content);
-                    var html_content = marked(markdown_content);
-
-                    posts_content[element.name] = html_content;
-                    posts_count += 1;
-
-                    if(posts_count == posts_number) {
-                        // Todo
-                        posts.forEach(function(element, index, array) {
-                            var content_dom = $("<div class='post'/>");
-                            content_dom.html(posts_content[element]);
-                            $("#content").append(content_dom);
-                            var sidebar_dom = $("<li />");
-                            var content_h1 = content_dom.find("h1");
-                            sidebar_dom.html('<a href="#' + content_h1.attr('id') + '">' + content_h1.html() + '</a>');
-                            $("#sidebar ul").append(sidebar_dom);
-                        });
-                    }
-
-
-                });
-
-            }
-        });
+var get_post = function(file_name, callback) {
+    var post_prefix = github_content + '/' + post_dir + '/';
+    $.get(post_prefix + file_name, function(data) {
+        var markdown_content = b64_to_utf8(data.content);
+        var html_content = marked(markdown_content);
+        if(callback) {
+            callback(html_content);
+        }
     });
+}
 
+var post = function(filename) {
+    var core = {
+        'ajax' : function(filename, callback) {
+            var url = github_api + '/repos/' + repo + '/contents/' + post_dir + '/' + filename;
+            $.get(url)
+            .done(function(data) {
+                callback(marked(b64_to_utf8(data.content)));
+            })
+            .fail(function() {
+                callback('<h1>404</h1>');
+            });
+        }
+    };
+    return {
+        'show': function(selector) {
+            core.ajax(filename, function(data) {
+                $(selector).html(data);
+            });
+        }
+    };
+}
+
+$(document).ready(function(){
+
+    var url = location.href;
+    var filename = url.match('#!post/(.*)');
+    if(filename) {
+        filename = filename[1];
+        post(filename).show('#content');
+        $('#sidebar').hide();
+    }
+    else {
+
+        // get markdown file list
+        $.get(github_content + '/' + post_dir, function(data) {
+
+            posts_number = data.length;
+            var posts_count = 0;
+            data.forEach(function(element, index, array) {
+                if(element.type == "file" && element.name.endsWith(".md")) {
+                    posts.push(element.name);
+                }
+            });
+            posts.forEach(function(element, index, array) {
+                var sidebar_dom = $("<li />");
+                sidebar_dom.html('<a href="#!post/' + element + '">' + element.replace('.md','') + '</a>');
+                $("#sidebar ul").append(sidebar_dom);
+            });
+            post(posts[0]).show('#content');
+            $('#sidebar a').click(function() {
+                location.reload();
+            });
+
+        });
+    }
 
 });
