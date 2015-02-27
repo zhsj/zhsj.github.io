@@ -34,14 +34,17 @@ var post = function(filename) {
     };
 }
 
+var onePost = function(filename) {
+    post(filename).show('#content');
+    $('#sidebar').hide();
+}
+
 $(document).ready(function(){
 
     var url = location.href;
-    var filename = url.match('#!post/(.*)');
-    if(filename) {
-        filename = filename[1];
-        post(filename).show('#content');
-        $('#sidebar').hide();
+    if(url.match('#!post/(.*)')) {
+        filename = url.replace(/\.md.*/,'.md').replace(/^.*#!post\//,'')
+        onePost(filename);
     }
     else {
         var url = github_api + '/repos/' + repo + '/contents/' + post_dir;
@@ -61,7 +64,8 @@ $(document).ready(function(){
             });
             post(posts[0]).show('#content');
             $('#sidebar a').click(function() {
-                location.reload();
+                filename = this.href.replace(/\.md.*/,'.md').replace(/^.*#!post\//,'')
+                onePost(filename);
             });
 
         });
