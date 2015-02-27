@@ -16,7 +16,7 @@ var post = function(filename) {
     var core = {
         'ajax' : function(filename, callback) {
             var url = github_api + '/repos/' + repo + '/contents/' + post_dir + '/' + filename;
-            $.get(url)
+            return $.get(url)
             .done(function(data) {
                 callback(marked(b64_to_utf8(data.content)));
             })
@@ -27,7 +27,7 @@ var post = function(filename) {
     };
     return {
         'show': function(selector) {
-            core.ajax(filename, function(data) {
+            return core.ajax(filename, function(data) {
                 $(selector).html(data);
             });
         }
@@ -35,15 +35,22 @@ var post = function(filename) {
 }
 
 var onePost = function(filename) {
-    post(filename).show('#content');
     $('#sidebar').hide();
+    var comment = '<div class="comment" id="comment">' +
+                    '<h2>Leave Comments</h2>' +
+                    '<blockquote>Not implemented now.</blockquote>' +
+                  '</div>';
+    post(filename).show('#content').done(function(){
+        $('#content').append(comment);
+
+    });
 }
 
 $(document).ready(function(){
 
     var url = location.href;
-    if(url.match('#!post/(.*)')) {
-        filename = url.replace(/\.md.*/,'.md').replace(/^.*#!post\//,'')
+    if(url.match('[\?]post=(.*)\.md')) {
+        filename = url.replace(/\.md.*/,'.md').replace(/^.*[\?]post=/,'')
         onePost(filename);
     }
     else {
@@ -59,14 +66,16 @@ $(document).ready(function(){
             });
             posts.forEach(function(element, index, array) {
                 var sidebar_dom = $("<li />");
-                sidebar_dom.html('<a href="#!post/' + element + '">' + element.replace('.md','') + '</a>');
+                sidebar_dom.html('<a href="?post=' + element + '">' + element.replace('.md','') + '</a>');
                 $("#sidebar ul").append(sidebar_dom);
             });
             post(posts[0]).show('#content');
-            $('#sidebar a').click(function() {
-                filename = this.href.replace(/\.md.*/,'.md').replace(/^.*#!post\//,'')
-                onePost(filename);
-            });
+            // $('#sidebar a').click(function() {
+            //     filename = this.href.replace(/\.md.*/,'.md').replace(/^.*[\?]post=/,'')
+            //     onePost(filename);
+            //     history.pushState(null,'',this.href);
+            //     return false;
+            // });
 
         });
     }
