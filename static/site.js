@@ -1,7 +1,3 @@
-function b64_to_utf8(str) {
-    return decodeURIComponent(escape(window.atob(str)));
-};
-
 marked.setOptions({
     highlight: function (code) {
         return hljs.highlightAuto(code).value;
@@ -15,10 +11,10 @@ var post_dir = "post";
 var post = function(filename) {
     var core = {
         'ajax' : function(filename, callback) {
-            var url = github_api + '/repos/' + repo + '/contents/' + post_dir + '/' + filename;
+            var url = post_dir + '/' + filename;
             return $.get(url)
             .done(function(data) {
-                callback(marked(b64_to_utf8(data.content)));
+                callback(marked(data));
             })
             .fail(function() {
                 callback('<h1>404</h1>');
