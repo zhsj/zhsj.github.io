@@ -153,40 +153,44 @@ listen-address=10.254.253.1
 log-queries
 
 address=/.ingress.com/2607:f8b0:400e:c02::79
-address=/.ingress.com/10.254.253.2
+address=/.ingress.com/10.254.253.1
 address=/.googlehosted.com/2607:f8b0:400e:c02::79
-address=/.googlehosted.com/10.254.253.2
+address=/.googlehosted.com/10.254.253.1
 address=/.appspot.com/2607:f8b0:400e:c04::8d
-address=/.appspot.com/10.254.253.3
+address=/.appspot.com/10.254.253.1
 ```
 
 ```
 # /etc/network/interfaces
-#dns
+#dns ans sniproxy
 auto eth0:0
 iface eth0:0 inet static
   address 10.254.253.1
   netmask 255.255.255.0
-
-#ingress
-auto eth0:1
-iface eth0:1 inet static
-  address 10.254.253.2
-  netmask 255.255.255.0
-auto eth0:1
-iface eth0:2 inet static
-  address 10.254.253.3
-  netmask 255.255.255.0
 ```
 
 ```bash
-# using socat to forward traffic
-socat TCP4-LISTEN:443,bind=10.254.253.2,fork,su=nobody \
-    TCP6:[2607:f8b0:400e:c02::79]:443
-socat TCP4-LISTEN:443,bind=10.254.253.3,fork,su=nobody \
-    TCP6:[2607:f8b0:400e:c04::8d]:443
-socat TCP4-LISTEN:80,bind=10.254.253.2,fork,su=nobody \
-    TCP6:[2607:f8b0:400e:c02::79]:80
-socat TCP4-LISTEN:80,bind=10.254.253.3,fork,su=nobody \
-    TCP6:[2607:f8b0:400e:c04::8d]:80
+# using sniproxy to forward traffic
+listen 10.254.253.1:80 {
+    proto http
+    table ingress
+    access_log {
+        filename /var/log/sniproxy/http_access.log
+        priority notice
+    }
+}
+
+listen 10.254.253.1:443 {
+    proto tls
+    table ingress
+    access_log {
+        filename /var/log/sniproxy/https_access.log
+        priority notice
+    }
+}
+table ingress {
+    .*\.ingress\.com [2607:f8b0:400e:c02::79]
+    .*\.googlehosted\.com [2607:f8b0:400e:c02::79]
+    .*\.appspot\.com [2607:f8b0:400e:c04::8d]
+}
 ```
