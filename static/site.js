@@ -45,8 +45,8 @@ var onePost = function(filename) {
 $(document).ready(function(){
 
     var url = location.href;
-    if(url.match('#!post=(.*)\.md')) {
-        filename = url.replace(/\.md.*/,'.md').replace(/^.*#!post=/,'')
+    if(url.match('[\?]post=(.*)\.md')) {
+        filename = url.replace(/\.md.*/,'.md').replace(/^.*[\?]post=/,'')
         onePost(filename);
     }
     else {
@@ -61,13 +61,10 @@ $(document).ready(function(){
                 }
             });
             posts.forEach(function(element, index, array) {
-                var sidebar_dom = $("<li class='post-link'>");
-                sidebar_dom.html('<a href="#!post=' + element + '">' + element.replace('.md','') + '</a>');
+                var sidebar_dom = $("<li />");
+                sidebar_dom.html('<a href="?post=' + element + '">' + element.replace('.md','') + '</a>');
                 $("#sidebar ul").append(sidebar_dom);
             });
-            $(".post-link a").click(function(){
-                location.reload();
-            })
             post(posts[0]).show('#content');
             // $('#sidebar a').click(function() {
             //     filename = this.href.replace(/\.md.*/,'.md').replace(/^.*[\?]post=/,'')
