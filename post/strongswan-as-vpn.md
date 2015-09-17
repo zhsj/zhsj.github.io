@@ -1,9 +1,11 @@
 # Using StrongSwan to build a VPN
 
-FYI, ipv6 currently is not working.
+Ipv6 currently is not working.
 
 It's a note to build a VPN on Digitalocean's VPS
 which works on Android, iOS, Linux, Windows clients.
+
+*Just for memorandum.*
 
 ## Overview
 
@@ -53,6 +55,7 @@ openssl pkcs12 -export -inkey clientKey.pem -in clientCert.pem \
 ## Ipsec Conf
 
 ```
+# /etc/ipsec.conf
 config setup
     uniqueids= no
 
@@ -99,9 +102,16 @@ conn radius-eap
     auto=add
 ```
 
+```
+# /etc/ipsec.secrets
+: RSA serverKey.pem
+: PSK "secrets"
+```
+
 ## StrongSwan Conf
 
 ```
+# /etc/strongswan.conf
 charon {
     load_modular = yes
     plugins {
@@ -124,8 +134,32 @@ charon {
     install_virtual_ip = yes
     i_dont_care_about_security_and_use_aggressive_mode_psk = yes
     duplicheck.enable = no
+    # self dns or use public dns like 8.8.8.8
     dns1 = 10.254.253.1
 }
+```
+
+## Freeradius Conf
+
+I just use plain text to store the username and password :(
+
+```
+# /etc/freeradius/users
+# only show the lines added
+
+test  Cleartext-Password := "test"
+
+```
+
+```
+# /etc/freeradius/clients.conf
+# only show the lines added
+
+client do2.zhsj.me {
+        ipaddr = 107.170.251.213
+        secret = zhsj.me
+}
+
 ```
 
 ## Routing
@@ -146,7 +180,8 @@ Since the VPN client only has ipv4 address currently, I hijacked the Ingress's
 domains.
 
 ```
-#dnsmasq config
+# /etc/dnsmasq.d/local.conf
+# dnsmasq config
 listen-address=127.0.0.1
 listen-address=10.254.253.1
 
@@ -162,7 +197,8 @@ address=/.appspot.com/10.254.253.1
 
 ```
 # /etc/network/interfaces
-#dns ans sniproxy
+
+# used for dnsmasq and sniproxy
 auto eth0:0
 iface eth0:0 inet static
   address 10.254.253.1
@@ -170,6 +206,7 @@ iface eth0:0 inet static
 ```
 
 ```bash
+# /etc/sniproxy.conf
 # using sniproxy to forward traffic
 listen 10.254.253.1:80 {
     proto http
