@@ -1,153 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>SJ Zhu's Blog</title>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">
-<link rel="stylesheet" href="static/github-markdown.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
-<script src="static/site.js"></script>
-<style>
-/*--------------------
-Global
---------------------*/
-body {
-    font: 13px/1.4em "Helvetica Neue", arial,freesans,clean,sans-serif;
-    background-color: #fff;
-    color: #393939;
-}
-
-p {
-    margin: 1em 0;
-}
-
-h1 {
-    font-size: 20px;
-    padding: .5em 0;
-    margin: 2em 0 1em;
-    font-weight: normal;
-}
-
-a {
-    color: #4183C4;
-    text-decoration: none;
-}
-
-a:hover,
-a:active {
-    text-decoration:underline;
-}
-
-
-/*--------------------
-Nav
---------------------*/
-#nav {
-    max-width: 980px;
-    margin: 0 auto;
-    position: relative;
-    border-bottom: 1px solid #d8d8d8;
-}
-
-#nav > h1, #nav > h1 > a {
-    color: #333;
-    font-weight: normal;
-    font-size: 22px;
-    -webkit-backface-visibility: hidden;
-    margin: 50px 0 10px 0;
-    text-decoration: none;
-}
-
-#nav > h1 > a {
-    z-index: 10;
-    position: relative;
-}
-
-#nav ul {
-    list-style: none;
-    position: absolute;
-    right: 0;
-    bottom: 8px;
-    width: 100%;
-    text-align: right;
-}
-
-#nav li {
-    display: inline-block;
-}
-
-#nav li a {
-    color: #767676;
-    font-size: 14px;
-    margin-left: 16px;
-    padding: 4px 2px 8px;
-}
-
-#sidebar li a:hover,
-#nav li a:hover {
-    text-decoration: none;
-    color: #327fc7;
-}
-
-#nav li:last-child a {
-    padding-right: 0;
-}
-
-#nav li .active {
-    color: #222;
-    border-bottom: 2px solid #d8d8d8;
-}
-
-/*--------------------
-Wrapper
---------------------*/
-#wrapper {
-    padding: 20px 0;
-    height: auto;
-    max-width: 980px;
-    margin: 0 auto;
-}
-
-#content {
-    width: 630px;
-    position: relative;
-    float: left;
-    color: #393939;
-    z-index: 2;
-    font-size: 14px;
-    line-height: 1.5em;
-}
-
-#sidebar {
-    position: relative;
-    float: right;
-    margin: 20px 0 0;
-    width: 290px;
-}
-#sidebar li a {
-    color: #767676;
-    font-size: 16px;
-    padding: 4px 2px 8px 0px;
-}
-</style>
-</head>
-<body>
-<div id="nav">
-    <h1>SJ Zhu's Blog (Under Construction...)</h1>
-    <ul>
-        <li><a href="/" class="active">Home</a></li>
-        <!-- <li><a href="CV/201503.html">C.V.</a></li> -->
-        <li><a href="https://github.com/zhsj">Github</a></li>
-    </ul>
-</div>
-<div id="wrapper">
-    <div id="content" class="markdown-body"></div>
-    <div id="sidebar">
-        <ul>
-        </ul>
+<!doctype html>
+<html xmlns:ng="http://angularjs.org" ng-app="blogApp">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="fragment" content="!" />
+    <title>SJ Zhu's Blog</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
+    <link rel="stylesheet" href="static/css/app.css">
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="head">
+        <h1><a href="/#!/">SJ Zhu's Blog</a></h1>
+      </div>
+      <div id="content" ng-view></div>
+      <div id="footer">
+          <div id="desc">I'm Shengjing Zhu. Life, love, linux.</div>
+        <p>Theme is inspired by <a href="http://nothingconcept.com">Evan Walsh</a>.</p>
+      </div>
     </div>
-</div>
-</body>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.min.js"></script>
+    <script src="static/js/app.js"></script>
+  </body>
 </html>
