@@ -1,9 +1,8 @@
 <!doctype html>
-<html xmlns:ng="http://angularjs.org" ng-app="blogApp">
+<html xmlns:ng="http://angularjs.org" ng-app="blogApp" ng-controller="PageController">
   <head>
     <meta charset="UTF-8">
-    <meta name="fragment" content="!" />
-    <title>SJ Zhu's Blog</title>
+    <title ng-bind="(Page.getTitle()||'Home') + ' | SJ Zhu\'s Blog'"></title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
     <link rel="stylesheet" href="static/css/app.css">
   </head>

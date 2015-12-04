@@ -1,5 +1,5 @@
 <div class="post" ng-repeat="post in postList | orderBy:'date':true">
-  <a href="/#!/posts/{{post.filename}}" class="permalink">#</a>
+  <a href="/#!/posts/{{post.filename}}" class="permalink" ng-click="setTitle(post.name)">#</a>
   <h3>{{post.name}}</h3>
   <div class="info">Date: {{post.date}}</div>
 </div>
