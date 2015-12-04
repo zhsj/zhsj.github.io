@@ -2,6 +2,7 @@
 <html xmlns:ng="http://angularjs.org" ng-app="blogApp" ng-controller="PageController">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
     <title ng-bind="(Page.getTitle()||'Home') + ' | SJ Zhu\'s Blog'"></title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
     <link rel="stylesheet" href="static/css/app.css">
@@ -13,8 +14,11 @@
       </div>
       <div id="content" ng-view></div>
       <div id="footer">
-          <div id="desc">I'm Shengjing Zhu. Life, love, linux.</div>
-        <p>Theme is inspired by <a href="http://nothingconcept.com">Evan Walsh</a>.</p>
+        <div id="desc">
+          <p>I'm Shengjing Zhu. Life, love, linux.</p>
+          <p>GitHub: @<a href="https://github.com/zhsj">zhsj</a>
+        </div>
+        <p>Powered by <a href="https://pages.github.com">GitHub Page</a>, <a href="https://www.cloudflare.com">CloudFlare</a>. Theme is inspired by <a href="http://nothingconcept.com">Evan Walsh</a>.</p>
       </div>
     </div>
     <script src="//cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
