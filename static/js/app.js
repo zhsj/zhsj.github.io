@@ -27,8 +27,8 @@ var blogApp = angular.module('blogApp', [
         }
 
 ])
-.directive('simpleHtml', ['$compile', 'Page',
-           function($compile, Page){
+.directive('simpleHtml', ['$compile', '$anchorScroll', 'Page',
+           function($compile, $anchorScroll, Page){
                return {
                    link: function($scope, $element, $attrs) {
                        var compile = function( newHTML  ) {
@@ -40,6 +40,7 @@ var blogApp = angular.module('blogApp', [
                                    Page.setTitle(heads[0].textContent)
                                }
                            }
+                           $anchorScroll();
                        };
                        var htmlName = $attrs.simpleHtml;
                        $scope.$watch(htmlName, function( newHTML  ) {
@@ -61,9 +62,12 @@ var blogApp = angular.module('blogApp', [
         }
     };
 })
-.controller('PageController', ['$scope', 'Page',
-            function($scope, Page) {
+.controller('PageController', ['$scope', '$anchorScroll', 'Page',
+            function($scope, $anchorScroll, Page) {
                 $scope.Page = Page;
+                $scope.goTo = function(anchor) {
+                    $anchorScroll(anchor);
+                }
             }
 ])
 .controller('IndexController', ['$scope', '$http', 'Page',
