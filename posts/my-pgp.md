@@ -6,4 +6,4 @@
 
 ## PGP KEY
 
-[0x5A806E6A6BB2DBCE](http://pgp.mit.edu/pks/lookup?op=get&search=0x5A806E6A6BB2DBCE)
+[0x5A806E6A6BB2DBCE](http://pgp.mit.edu/pks/lookup?op=vindex&search=0x5A806E6A6BB2DBCE)
