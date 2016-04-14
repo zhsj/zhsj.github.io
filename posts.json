@@ -1,8 +1,8 @@
 [
     {
-        "name": "My PGP Key",
-        "filename": "my-pgp.md",
-        "date": "2015-10-26"
+        "name": "My GPG Key",
+        "filename": "my-gpg.md",
+        "date": "2016-04-15"
     },
     {
         "name": "Note: Using StrongSwan to build a VPN",
