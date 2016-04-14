@@ -1,0 +1,19 @@
+# MY GPG KEY
+
+## New Key
+
+I have generated a new gpg key which uses ed25519 on April 14, 2016.
+
+Fingerprint is: `8DFF D717 9861 AA02 EFC8  D667 0005 FF8C 062C D65F`.
+
+And the key id is [0x0005ff8c062cd65f](http://sks.fidocon.de/pks/lookup?op=vindex&search=0x0005FF8C062CD65F).
+
+You can receive the key from the server that runs 1.1.5+ SKS in the [pool](https://sks-keyservers.net/status/)
+and you should use GPG 2.1 or above.
+
+## Old Key
+
+Fingerprint is `1333 B8B8 850C 4484 8BE2  3C5C 5A80 6E6A 6BB2 DBCE`.
+
+
+Key id is [0x5A806E6A6BB2DBCE](http://pgp.mit.edu/pks/lookup?op=vindex&search=0x5A806E6A6BB2DBCE).
