@@ -8,7 +8,7 @@ Fingerprint is: `8DFF D717 9861 AA02 EFC8  D667 0005 FF8C 062C D65F`.
 
 And the key id is [0x0005ff8c062cd65f](http://sks.fidocon.de/pks/lookup?op=vindex&search=0x0005FF8C062CD65F).
 
-You can receive the key from the server that runs 1.1.5+ SKS in the [pool](https://sks-keyservers.net/status/)
+You can retrieve the key from servers running 1.1.5+ SKS in the [SKS Keyservers Pool](https://sks-keyservers.net/status/)
 and you should use GPG 2.1 or above.
 
 ## Old Key
