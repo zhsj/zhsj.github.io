@@ -1,4 +1,4 @@
-# Using StrongSwan to build a VPN
+# Note: Using StrongSwan to build a VPN
 
 Ipv6 currently is not working.
 
