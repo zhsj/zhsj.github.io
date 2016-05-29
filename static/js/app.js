@@ -11,9 +11,10 @@ var blogApp = angular.module('blogApp', [
 ])
 .config(['$routeProvider', '$locationProvider',
         function($routeProvider, $locationProvider) {
+            $locationProvider.html5Mode(true);
             $locationProvider.hashPrefix('!');
             $routeProvider
-            .when('/posts/:filename', {
+            .when('/view/:filename', {
                 template: '<div class="markdown-body post" simple-html="postHtml">',
                 controller: 'PostDetailController'
             })
@@ -83,7 +84,7 @@ var blogApp = angular.module('blogApp', [
 ])
 .controller('PostDetailController', ['$scope', '$routeParams', '$http', 'Page',
             function($scope, $routeParams, $http, Page) {
-                $http.get('posts/'+$routeParams.filename).success(function(data) {
+                $http.get('/posts/'+$routeParams.filename+'.md').success(function(data) {
                     $scope.postHtml = marked(data);
                 });
             }
