@@ -8,9 +8,16 @@
       }
     ],
     "ignore": [
-        "firebase.json",
-        "README.md",
-        "**/.*"
+      "firebase.json",
+      "README.md",
+      "**/.*"
+    ],
+    "redirects": [
+      {
+        "source": "/",
+        "destination": "https://about.me/zhsj",
+        "type": 302
+      }
     ]
   }
 }
