@@ -84,7 +84,7 @@ var blogApp = angular.module('blogApp', [
 ])
 .controller('PostDetailController', ['$scope', '$routeParams', '$http', 'Page',
             function($scope, $routeParams, $http, Page) {
-                $http.get('/posts/'+$routeParams.filename+'.md').success(function(data) {
+                $http.get('posts/'+$routeParams.filename+'.md').success(function(data) {
                     $scope.postHtml = marked(data);
                 });
             }
