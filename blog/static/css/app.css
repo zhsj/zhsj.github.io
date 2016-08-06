@@ -13,14 +13,14 @@ a:hover {
     color:#999;
 }
 h1 {
-    font-size:18px;
+    font-size:2em;
     margin:0 5px 0 0;
 }
 h2 {
-    font-size: 16px;
+    font-size:1.45em;
 }
 h3 {
-    font-size:14px;
+    font-size:1.2em;
 }
 #wrap {
     width:800px;
@@ -45,13 +45,15 @@ h3 {
     background:#eee;
     padding:10px;
     margin-top:10px;
-    font-size:12px;
+    font-size:0.98em;
 }
 .permalink {
+    font-size:1.45em;
     float:left;
-    font-size:14px;
     margin-left:-20px;
-    font-weight:bold;
+}
+.permalink:link,.permalink:visited,.permalink:active,.permalink:hover {
+    color:#555;
 }
 .post {
     margin:0 0 20px 0;
@@ -60,6 +62,27 @@ h3 {
 }
 
 /* https://github.com/sindresorhus/github-markdown-css */
+.markdown-body {
+    font-size:16px;
+}
+.markdown-body h1 {
+    font-size:1.6em;
+}
+.markdown-body h2 {
+    font-size:1.45em;
+}
+.markdown-body h3 {
+    font-size:1.35em;
+}
+.markdown-body h4 {
+    font-size:1.27em;
+}
+.markdown-body h5 {
+    font-size:1.2em;
+}
+.markdown-body h5 {
+    font-size:1.15em;
+}
 .markdown-body h1,
 .markdown-body h2,
 .markdown-body h3,
