@@ -1,5 +1,9 @@
 /* https://github.com/evanwalsh/stil */
+.wf-active body {
+    visibility:visible;
+}
 body {
+    visibility:hidden;
     background:#fff;
     color:#000;
     margin:40px;
