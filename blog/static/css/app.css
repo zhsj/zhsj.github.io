@@ -3,7 +3,7 @@ body {
     background:#fff;
     color:#000;
     margin:40px;
-    font:14px 'Roboto',sans-serif;
+    font:normal 300 14px 'Roboto',sans-serif;
 }
 a:link,a:visited,a:active {
     color:#000;
@@ -11,6 +11,9 @@ a:link,a:visited,a:active {
 }
 a:hover {
     color:#999;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-weight:600;
 }
 h1 {
     font-size:2em;
@@ -92,7 +95,7 @@ h3 {
   margin: 14px 0;
 }
 .markdown-body table th {
-  font-weight: bold;
+    font-weight: 600;
 }
 .markdown-body table th,
 .markdown-body table td {
