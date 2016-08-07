@@ -6,6 +6,7 @@
     <base href="/blog/" />
     <title ng-bind="(Page.getTitle()||'Home') + ' | SJ Zhu\'s Blog'"></title>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/g/normalize@3.0.3,highlight.js@9.5.0(styles/default.min.css)">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300|Source+Code+Pro:300">
     <link rel="stylesheet" href="static/css/app.css">
   </head>
   <body>
@@ -26,31 +27,6 @@
         </p>
       </div>
     </div>
-    <script>
-      // Some ugly code
-      WebFontConfig = {
-        google: {
-          families: ['Roboto:300','Source Code Pro:300']
-        },
-        loading: function() {
-          setTimeout(function(){
-            e=document.getElementsByTagName("body")[0];
-            visibility=window.getComputedStyle(e).getPropertyValue('visibility');
-            if(visibility === "hidden"){
-              WebFont.load({
-                custom: {
-                  families: ['Roboto:300','Source Code Pro:300'],
-                  urls: ['//fonts.lug.ustc.edu.cn/css?family=Roboto:300|Source+Code+Pro:300'],
-                },
-                active: function(){ e.style.visibility="visible"; }
-              });
-            }
-            //e.style.visibility="visible";
-          },2500);
-        }
-      };
-    </script>
-    <script src="//cdn.jsdelivr.net/webfontloader/1.6.26/webfontloader.js"></script>
     <script src="//cdn.jsdelivr.net/g/marked@0.3.5,highlight.js@9.5.0,angularjs@1.5.5(angular.min.js+angular-route.min.js)"></script>
     <script src="static/js/app.js"></script>
   </body>
