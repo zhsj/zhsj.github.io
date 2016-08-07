@@ -92,39 +92,39 @@ h3 {
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  margin: 14px 0;
+    margin: 14px 0;
 }
 .markdown-body table th {
     font-weight: 600;
 }
 .markdown-body table th,
 .markdown-body table td {
-  padding: 6px 13px;
-  border: 1px solid #ddd;
+    padding: 6px 13px;
+    border: 1px solid #ddd;
 }
 .markdown-body table tr {
-  background-color: #fff;
-  border-top: 1px solid #ccc;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
 }
 .markdown-body table tr:nth-child(2n) {
-  background-color: #f8f8f8;
+    background-color: #f8f8f8;
 }
 .markdown-body pre{
-  padding: 0.2em;
-  margin: 0;
-  font-size: 85%;
-  background-color: rgba(0,0,0,0.04);
-  border-radius: 3px;
+    padding: 0.2em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(0,0,0,0.04);
+    border-radius: 3px;
 }
 .markdown-body pre>code {
-  padding: 0;
-  margin: 0;
-  font-family: 'Source Code Pro', monospace;
-  font-size: 100%;
-  word-break: normal;
-  white-space: pre;
-  background: transparent;
-  border: 0;
+    padding: 0;
+    margin: 0;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
 }
 @media screen and (max-width:800px) {
     #wrap {
@@ -132,3 +132,6 @@ h3 {
     }
 }
 
+/*
+vim:ai:et:sta:ts=4:sts=4:sw=4
+ */
