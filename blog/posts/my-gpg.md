@@ -10,6 +10,8 @@ Link: [0xCF0E265B7DFBB2F2](https://sks.ustclug.org/pks/lookup?op=vindex&search=0
 
 ## Old Key
 
+Revoked at Sept 26, 2016
+
 Fingerprint is `1333 B8B8 850C 4484 8BE2  3C5C 5A80 6E6A 6BB2 DBCE`.
 
 Link: [0x5A806E6A6BB2DBCE](https://sks.ustclug.org/pks/lookup?op=vindex&search=0x5A806E6A6BB2DBCE)
