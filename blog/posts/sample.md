@@ -9,12 +9,23 @@ def hello(s):
 hello("world")
 ```
 
+inline `code`
+
 ## Table
 
 First Header  | Second Header
 ------------- | -------------
 Content Cell  | Content Cell
 Content Cell  | Content Cell
+
+## List
+
+* a
+* b
+
+
+1. c
+2. d
 
 ## Task
 
@@ -30,4 +41,4 @@ Content Cell  | Content Cell
 
 ## 中文测试
 
-这是中文，你好！
+这是**中文**，*你好*！
