@@ -32,7 +32,7 @@ var blogApp = angular.module('blogApp', [
     function($compile, $anchorScroll, Page){
       return {
         link: function($scope, $element, $attrs) {
-          var compile = function( newHTML  ) {
+          var compile = function(newHTML) {
             newHTML = $compile(newHTML)($scope);
             $element.html('').append(newHTML);
             if(!Page.getTitle()) {
@@ -44,7 +44,7 @@ var blogApp = angular.module('blogApp', [
             $anchorScroll();
           };
           var htmlName = $attrs.simpleHtml;
-          $scope.$watch(htmlName, function( newHTML  ) {
+          $scope.$watch(htmlName, function(newHTML) {
             if(!newHTML) return;
             compile(newHTML);
           });
