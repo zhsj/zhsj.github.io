@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="zh-Hans" xmlns:ng="http://angularjs.org" ng-app="blogApp" ng-controller="PageController">
+<html lang="zh-Hans">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
     <base href="/blog/" />
-    <title ng-bind="(Page.getTitle()||'Home') + ' | SJ Zhu\'s Blog'"></title>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/g/normalize@5.0.0,highlight.js@9.6.0(styles/default.min.css)">
+    <title>SJ Zhu's Blog</title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/g/normalize@5.0.0,highlight.js@9.8.0(styles/default.min.css)">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300|Source+Code+Pro:300">
     <link rel="stylesheet" href="static/css/app.css">
   </head>
@@ -14,7 +14,7 @@
       <div id="head">
         <h1><a href="/blog/">SJ Zhu's Blog</a></h1>
       </div>
-      <div id="content" ng-view></div>
+      <div id="content"></div>
       <div id="footer">
         <div id="desc">
           <p>I'm Shengjing Zhu. Fan of Open Source, Pythoner.</p>
@@ -23,11 +23,11 @@
         <p>Text is available under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
         Site is powered by <a href="https://firebase.google.com/">Firebase</a> &amp; <a href="https://www.cloudflare.com">CloudFlare</a>.
         Theme is inspired by <a href="https://github.com/evanwalsh/stil">Evan Wal1h</a>.
-        <a href ng-click="goTo('top')">Top</a>
+        <a href="" onclick="event.preventDefault(); window.scrollTo(0,0)">Top</a>
         </p>
       </div>
     </div>
-    <script src="//cdn.jsdelivr.net/g/marked@0.3.5,highlight.js@9.6.0,angularjs@1.5.5(angular.min.js+angular-route.min.js)"></script>
+    <script src="//cdn.jsdelivr.net/g/marked@0.3.5,highlight.js@9.8.0,vue@2.1.4"></script>
     <script src="static/js/app.js"></script>
   </body>
 </html>
