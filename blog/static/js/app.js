@@ -1,6 +1,7 @@
 marked.setOptions({
-  highlight: function (code) {
-    return hljs.highlightAuto(code).value;
+  highlight: function (code, lang) {
+    var validLang = !!(lang && hljs.getLanguage(lang));
+    return validLang ? hljs.highlight(lang, code).value : code;
   }
 });
 
