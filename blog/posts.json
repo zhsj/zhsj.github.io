@@ -1,5 +1,10 @@
 [
     {
+        "name": "Install Debian on xhyve(OS X)",
+        "filename": "xhyve-install-debian",
+        "date": "2017-09-30"
+    },
+    {
         "name": "My GPG Key",
         "filename": "my-gpg",
         "date": "2016-08-13"
