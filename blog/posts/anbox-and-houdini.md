@@ -1,5 +1,10 @@
 # Run Arm apk on x86 with Anbox
 
+Anbox supports [rootfs overlay](https://docs.anbox.io/userguide/advanced/rootfs_overlay.html)
+since [PR-774](https://github.com/anbox/anbox/pull/774).
+
+I will update soon to adjust this guide.
+
 ## Anbox
 
 https://anbox.io/
