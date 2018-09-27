@@ -149,8 +149,8 @@ h3 {
 }
 .markdown-body code:before,
 .markdown-body code:after {
-  content:"`";
-  display:inline;
+    content:"`";
+    display:inline;
 }
 .markdown-body pre>code {
     padding:0;
@@ -167,37 +167,37 @@ h3 {
 }
 .markdown-body strong:before,
 .markdown-body strong:after {
-  content:"__";
-  display:inline;
+    content:"__";
+    display:inline;
 }
 .markdown-body em:before,
 .markdown-body em:after {
-  content:"*";
-  display:inline;
+    content:"*";
+    display:inline;
 }
 .markdown-body ul {
-  padding:0;
+    padding:0;
 }
 .markdown-body li {
-  position:relative;
-  display:block;
-  padding-left:2em;
+    position:relative;
+    display:block;
+    padding-left:2em;
 }
 .markdown-body li:after {
-  position:absolute;
-  top:0;
-  left:0;
+    position:absolute;
+    top:0;
+    left:0;
 }
 .markdown-body ul > li:after {
-  content:"*";
+    content:"*";
 }
 .markdown-body ol {
-  counter-reset:ol;
-  padding:0;
+    counter-reset:ol;
+    padding:0;
 }
 .markdown-body ol > li:after {
-  content:counter(ol) ".";
-  counter-increment:ol;
+    content:counter(ol) ".";
+    counter-increment:ol;
 }
 @media screen and (max-width:800px) {
     #wrap {
