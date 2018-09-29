@@ -1,4 +1,4 @@
-# MY GPG KEY
+# My GPG Key
 
 ## New Key
 
