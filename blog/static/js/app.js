@@ -15,7 +15,7 @@ var my_fetch = function(url, cb) {
 };
 
 var setTitle = function(title) {
-    document.title = title + " | SJ Zhu's Blog";
+    document.title = 'zhsj::Blog::' + title;
 };
 
 var setContent = function(content) {
