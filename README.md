@@ -1,6 +1,6 @@
 # About
 
-Here is zhsj's blog :)
+Here is zhsj's homepage :)
 
 # License
 

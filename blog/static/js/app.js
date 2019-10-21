@@ -15,15 +15,15 @@ var my_fetch = function(url, cb) {
 };
 
 var setTitle = function(title) {
-    document.title = 'zhsj::Blog::' + title;
+    document.title = title + ' | Blog | zhsj';
 };
 
 var setContent = function(content) {
-    document.getElementById("content").innerHTML = content;
+    document.getElementById('content').innerHTML = content;
 };
 
 var render_home = function() {
-    var posts_url = "posts.json";
+    var posts_url = 'posts.json';
     my_fetch(posts_url, function(res) {
         posts = JSON.parse(res);
         posts.sort(function(post_a, post_b) {
