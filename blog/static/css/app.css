@@ -1,75 +1,87 @@
 /* https://github.com/evanwalsh/stil */
 body {
-    background:#fff;
-    color:#000;
-    margin:40px;
-    font:normal 300 14px 'Roboto',sans-serif;
+  background: #fff;
+  color: #000;
+  margin: 40px;
+  font: normal 300 14px "Roboto", sans-serif;
 }
-a:link,a:visited,a:active {
-    color:#000;
-    text-decoration:underline;
+a:link,
+a:visited,
+a:active {
+  color: #000;
+  text-decoration: underline;
 }
 a:hover {
-    color:#999;
+  color: #999;
 }
-h1,h2,h3,h4,h5,h6 {
-    font-weight:600;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
 }
 h1 {
-    font-size:2em;
-    margin:0 5px 0 0;
+  font-size: 2em;
+  margin: 0 5px 0 0;
 }
 h2 {
-    font-size:1.45em;
+  font-size: 1.45em;
 }
 h3 {
-    font-size:1.2em;
+  font-size: 1.2em;
 }
 #wrap {
-    width:800px;
-    margin:0 auto;
+  width: 800px;
+  margin: 0 auto;
 }
 #head {
-    margin:0 0 30px 0;
-    padding-bottom:10px;
-    border-bottom:1px solid #eee
+  margin: 0 0 30px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
 }
-#head a:link,#head a:visited,#head a:active {
-    color:#000;
-    text-decoration:none
+#head a:link,
+#head a:visited,
+#head a:active {
+  color: #000;
+  text-decoration: none;
 }
 #head a:hover {
-    text-decoration:underline;
-    color:#000;
+  text-decoration: underline;
+  color: #000;
 }
 #footer {
-    margin:20px 0;
+  margin: 20px 0;
 }
 #desc {
-    background:#eee;
-    padding:10px;
-    margin-top:10px;
-    font-size:0.98em;
+  background: #eee;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 0.98em;
 }
 .permalink {
-    font-size:1.45em;
-    float:left;
-    margin-left:-20px;
+  font-size: 1.45em;
+  float: left;
+  margin-left: -20px;
 }
-.permalink:link,.permalink:visited,.permalink:active,.permalink:hover {
-    color:#555;
+.permalink:link,
+.permalink:visited,
+.permalink:active,
+.permalink:hover {
+  color: #555;
 }
 .post {
-    margin:0 0 20px 0;
-    border-bottom:#eee 1px solid;
-    padding:0 0 20px 0;
+  margin: 0 0 20px 0;
+  border-bottom: #eee 1px solid;
+  padding: 0 0 20px 0;
 }
 
 /* https://github.com/sindresorhus/github-markdown-css
  * https://github.com/mrcoles/markdown-css
  */
 .markdown-body {
-    font-size:16px;
+  font-size: 16px;
 }
 .markdown-body h1:before,
 .markdown-body h2:before,
@@ -77,41 +89,41 @@ h3 {
 .markdown-body h4:before,
 .markdown-body h5:before,
 .markdown-body h6:before {
-    content:"# ";
-    display:inline;
+  content: "# ";
+  display: inline;
 }
 .markdown-body h1 {
-    font-size:1.6em;
+  font-size: 1.6em;
 }
 .markdown-body h2:before {
-    content:"## ";
+  content: "## ";
 }
 .markdown-body h2 {
-    font-size:1.45em;
+  font-size: 1.45em;
 }
 .markdown-body h3:before {
-    content:"### ";
+  content: "### ";
 }
 .markdown-body h3 {
-    font-size:1.35em;
+  font-size: 1.35em;
 }
 .markdown-body h4:before {
-    content:"#### ";
+  content: "#### ";
 }
 .markdown-body h4 {
-    font-size:1.27em;
+  font-size: 1.27em;
 }
 .markdown-body h5:before {
-    content:"##### ";
+  content: "##### ";
 }
 .markdown-body h5 {
-    font-size:1.2em;
+  font-size: 1.2em;
 }
 .markdown-body h6:before {
-    content:"###### ";
+  content: "###### ";
 }
 .markdown-body h6 {
-    font-size:1.15em;
+  font-size: 1.15em;
 }
 .markdown-body h1,
 .markdown-body h2,
@@ -119,90 +131,90 @@ h3 {
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-    margin:14px 0;
+  margin: 14px 0;
 }
 .markdown-body table th {
-    font-weight:600;
+  font-weight: 600;
 }
 .markdown-body table th,
 .markdown-body table td {
-    padding:6px 13px;
-    border:1px solid #ddd;
+  padding: 6px 13px;
+  border: 1px solid #ddd;
 }
 .markdown-body table tr {
-    background-color:#fff;
-    border-top:1px solid #ccc;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
 }
 .markdown-body table tr:nth-child(2n) {
-    background-color:#f8f8f8;
+  background-color: #f8f8f8;
 }
-.markdown-body pre{
-    padding:0.2em;
-    margin:0;
-    font-size:85%;
-    background-color:rgba(0,0,0,0.04);
-    border-radius:3px;
-    overflow-x:auto;
+.markdown-body pre {
+  padding: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 3px;
+  overflow-x: auto;
 }
 .markdown-body code {
-    font-family:'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
 }
 .markdown-body code:before,
 .markdown-body code:after {
-    content:"`";
-    display:inline;
+  content: "`";
+  display: inline;
 }
-.markdown-body pre>code {
-    padding:0;
-    margin:0;
-    font-size:100%;
-    word-break:normal;
-    white-space:pre;
-    background:transparent;
-    border:0;
+.markdown-body pre > code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
 }
-.markdown-body pre>code:before,
-.markdown-body pre>code:after {
-    content:none;
+.markdown-body pre > code:before,
+.markdown-body pre > code:after {
+  content: none;
 }
 .markdown-body strong:before,
 .markdown-body strong:after {
-    content:"__";
-    display:inline;
+  content: "__";
+  display: inline;
 }
 .markdown-body em:before,
 .markdown-body em:after {
-    content:"*";
-    display:inline;
+  content: "*";
+  display: inline;
 }
 .markdown-body ul {
-    padding:0;
+  padding: 0;
 }
 .markdown-body li {
-    position:relative;
-    display:block;
-    padding-left:2em;
+  position: relative;
+  display: block;
+  padding-left: 2em;
 }
 .markdown-body li:after {
-    position:absolute;
-    top:0;
-    left:0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .markdown-body ul > li:after {
-    content:"*";
+  content: "*";
 }
 .markdown-body ol {
-    counter-reset:ol;
-    padding:0;
+  counter-reset: ol;
+  padding: 0;
 }
 .markdown-body ol > li:after {
-    content:counter(ol) ".";
-    counter-increment:ol;
+  content: counter(ol) ".";
+  counter-increment: ol;
 }
-@media screen and (max-width:800px) {
-    #wrap {
-        width:100%
-    }
+@media screen and (max-width: 800px) {
+  #wrap {
+    width: 100%;
+  }
 }
 /*
 vim:ai:et:sta:ts=4:sts=4:sw=4
