@@ -29,9 +29,7 @@ var render_home = function () {
   my_fetch(posts_url, function (res) {
     posts = JSON.parse(res);
     posts.sort(function (post_a, post_b) {
-      date_a = new Date(post_a.date);
-      date_b = new Date(post_b.date);
-      return date_a < date_b;
+      return new Date(post_b.date) - new Date(post_a.date);
     });
     var content = "";
     posts.forEach(function (post) {
@@ -59,6 +57,9 @@ var render_post = function (filename) {
     var content = document.createElement("div");
     content.classList.add("markdown-body", "post");
     content.innerHTML = postHtml;
+    content.querySelectorAll("pre > code").forEach(function (block) {
+      block.classList.add("hljs");
+    });
     var titles = content.getElementsByTagName("h1");
     if (titles.length > 0) {
       setTitle(titles[0].textContent);
