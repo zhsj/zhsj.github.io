@@ -1,4 +1,5 @@
 User-agent: *
-Allow: /blog/
 Allow: /$
+Allow: /blog/
+Allow: /yauzin/
 Disallow: /
