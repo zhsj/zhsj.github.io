@@ -1,18 +1,30 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import fontforge
+from html.parser import HTMLParser
+from fontTools import subset
 
 
-def clean_without(font, glyphs):
-    font.selection.none()
-    for i in set(glyphs):
-        font.selection.select(('more', 'unicode'), ord(i))
-    font.selection.invert()
-    font.clear()
+class TextParser(HTMLParser):
+    tags = ('p', 'h1')
+    depth = 0
+    chars = set()
+    def handle_starttag(self, tag, attrs): self.depth += tag in self.tags
+    def handle_endtag(self, tag): self.depth -= tag in self.tags
+    def handle_data(self, data):
+        if self.depth: self.chars |= set(data)
+
+
+def subset_font(font, chars):
+    ss = subset.Subsetter()
+    ss.populate(unicodes=[ord(c) for c in chars])
+    ss.subset(font)
 
 
 if __name__ == '__main__':
-    f_opensans = fontforge.open('../static/open-sans.woff')
-    s_en = 'Shengjing ZhuSoftware Engineer & Debian Developer'.replace(' ', '')
-    clean_without(f_opensans, s_en)
-    f_opensans.generate('../static/open-sans-generated.woff')
+    parser = TextParser()
+    parser.feed(open('../index.html').read())
+    s_en = {c for c in parser.chars if 0x20 < ord(c) < 0x7f}
+    f_opensans = subset.load_font('../static/open-sans.woff', subset.Options())
+    subset_font(f_opensans, s_en)
+    f_opensans.flavor = 'woff'
+    f_opensans.save('../static/open-sans-generated.woff')
